@@ -1,1 +1,3 @@
-* Welcome to Computer Science 2
+# Welcome to Computer Science 2
+
+Winter 2025
