@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Object Oriented Programming in Java</title>
+<meta name="author" content=""/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/league.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/zenburn.css"/></head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Object Oriented Programming in Java</h1><p class="subtitle">Inheritance and Polymorphism Made Simple</p>
+
+</section>
+
+
+<section>
+<section id="slide-orgef50124">
+<h2 id="orgef50124">A Brief History of OOP</h2>
+<p>
+Originated in the 1960s with Simula.
+Simula was designed for simulations, inspiring the concept of 'objects.'
+</p>
+
+<div id="orgae31e89" class="figure">
+<p><img src="Simula.webp" alt="Simula.webp" width="35%" align="center" />
+</p>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orga84bb72">
+<h2 id="orga84bb72">Base Class: Polygon</h2>
+<div class="org-src-container">
+
+<pre   ><code class="java" >public class Polygon {
+    private int sides;
+
+    public Polygon(int sides) {
+        this.sides = sides;
+    }
+
+    public int getSides() {
+        return sides;
+    }
+
+    public void describe() {
+        System.out.println("I am a polygon with " + sides + " sides.");
+    }
+}
+</code></pre>
+</div>
+
+
+<div id="org5c59629" class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Assorted_polygons.svg" alt="Assorted_polygons.svg" class="org-svg" width="45%" align="center" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd99a481">
+<h2 id="orgd99a481">Inheriting from Polygon</h2>
+<div class="outline-text-2" id="text-orgd99a481">
+</div>
+</section>
+<section id="slide-orgd45852f">
+<h3 id="orgd45852f">Rectangle adds length and width.</h3>
+<div class="org-src-container">
+
+<pre   ><code class="java" >public class Rectangle extends Polygon {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        super(4); // A rectangle always has 4 sides
+        this.length = length;
+        this.width = width;
+    }
+
+    public double calculateArea() {
+        return length * width;
+    }
+
+    @Override
+    public void describe() {
+        System.out.println("I am a rectangle with length " + length + " and width " + width + ".");
+    }
+}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org741fdd4">
+<h3 id="org741fdd4">Triangle adds base and height.</h3>
+<div class="org-src-container">
+
+<pre   ><code class="java" >public class Triangle extends Polygon {
+    private double base;
+    private double height;
+
+    public Triangle(double base, double height) {
+        super(3); // A triangle always has 3 sides
+        this.base = base;
+        this.height = height;
+    }
+
+    public double calculateArea() {
+        return 0.5 * base * height;
+    }
+
+    @Override
+    public void describe() {
+        System.out.println("I am a triangle with base " + base + " and height " + height + ".");
+    }
+}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org443beee">
+<h2 id="org443beee">Square Inherits from Rectangle</h2>
+<div class="org-src-container">
+
+<pre   ><code class="java" >public class Square extends Rectangle {
+
+    public Square(double side) {
+        super(side, side); // A square has equal length and width
+    }
+
+    @Override
+    public void describe() {
+        System.out.println("I am a square with area " + super.calculateArea() + ".");
+    }
+}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org862c37c">
+<h2 id="org862c37c">Why Polymorphism Rocks</h2>
+<div class="outline-text-2" id="text-org862c37c">
+</div>
+</section>
+<section id="slide-org11385b9">
+<h3 id="org11385b9">UML diagram</h3>
+
+<div id="org571f1d2" class="figure">
+<p><img src="polygon.uml.png" alt="polygon.uml.png" width="60%" align="center" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgd890304">
+<h3 id="orgd890304">Client class</h3>
+<p>
+Store all shapes as Polygon objects.
+Each shape behaves uniquely.
+</p>
+
+<div class="org-src-container">
+
+<pre   ><code class="java" >public class Main {
+    public static void main(String[] args) {
+        Polygon[] shapes = {
+            new Rectangle(5, 10),
+            new Triangle(4, 6),
+            new Square(7)
+        };
+
+        for (Polygon shape : shapes) {
+            shape.describe();
+            if (shape instanceof Rectangle) {
+                System.out.println("Area: " + ((Rectangle) shape).calculateArea());
+            }
+            System.out.println();
+        }
+    }
+}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd20ddf2">
+<h2 id="orgd20ddf2">Key Takeaways</h2>
+<ul>
+<li>Inheritance enables code reuse.</li>
+<li>Polymorphism adds flexibility.</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js"></script>
+
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+plugins: [RevealHighlight]
+});
+
+</script>
+</body>
+</html>
