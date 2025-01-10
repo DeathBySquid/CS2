@@ -1,3 +1,4 @@
+package Shape;
 public class Triangle extends Polygon{
     private double base;
     private double height;

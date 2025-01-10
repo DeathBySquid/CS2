@@ -1,3 +1,5 @@
+package Shape;
+
 public abstract class Polygon implements Shape {
     private int sides;
 

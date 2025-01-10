@@ -1,7 +1,9 @@
+package Shape;
+
 public interface Shape {
 
-    public double area();
-    public double perimeter();
-    public void describe();
+    double area();
+    double perimeter();
+    void describe();
 
 }
