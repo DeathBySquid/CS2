@@ -1,8 +1,8 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+package CSBS;
 
-public class CSBS2 {
+import java.util.ArrayList;
+
+public class CSBS2ArrayList {
 
     public static int countInRange(ArrayList<Integer> v, int min, int max) {
         int count = 0;
