@@ -1,6 +1,14 @@
-public class Rectangle extends Polygon{
+public class Rectangle extends Polygon {
     private double length;
     private double width;
+
+    public double area() {
+        return length * width;
+    }
+
+    public double perimeter() {
+        return 2 * (length + width);
+    }
 
     public Rectangle(double length, double width) {
         super(4); // A rectangle always has 4 sides
