@@ -11,20 +11,16 @@ class Employee {
     public int getHours() {
         return __baseHours;                // 40 hours/week
     }
-
     public double getSalary() {
         return __baseSalary;               // $40,000.00
     }
-
     public int getVacationDays() {
         return __baseVacationDays;         // 10 days
     }
-
     public String getVacationForm() {
         return __baseVacationForm;         // yellow
     }
-
-
+    // region
     // These are so that test cases can change the base values
     // and make sure that subclasses also change their values.
     // (Your code that you submit is NOT supposed to directly use, call,
@@ -48,6 +44,7 @@ class Employee {
     public static final void setBaseVacationForm(String form) {
         __baseVacationForm = form;
     }
+    // endregion
 }
 
 class Lawyer extends Employee {
@@ -55,37 +52,31 @@ class Lawyer extends Employee {
     public int getVacationDays() {
         return super.getVacationDays() + 5;
     }
-
     // overrides getVacationDays from Employee class
     public String getVacationForm() {
         return lawyerVacationForm;
     }
-
     // this is the Lawyer's added behavior
     public String sue() {
         return "I'll see you in court!";
     }
-
-
+    // region
     // these are so that test cases can change the Lawyer values
     // and make sure that subclasses also change
     private static String lawyerVacationForm = "pink";
-
     public static final void setLawyerVacationForm(String form) {
         lawyerVacationForm = form;
     }
+    // endregion
 }
 
 class StanfordLawyer extends Lawyer {
-
     public double getSalary() {
         return super.getSalary()*1.2;
     }
-
     public int getVacationDays() {
         return super.getVacationDays() + 3;
     }
-
     public String getVacationForm() {
         String lawyerVacationForm = super.getVacationForm();
         return lawyerVacationForm + lawyerVacationForm + lawyerVacationForm + lawyerVacationForm;
