@@ -19,7 +19,28 @@ public class ArrayIntList {
         size++;
     }
 
+    public void add(int index, int element) {
+        ensureCapacity(size + 1);
+        for (int i = size; i > index; i--) {
+            elementData[i] = elementData[i - 1];
+        }
+        elementData[index] = element;
+        size++;
+    }
+
+    public void remove(int index) {
+        for (int i = index; i < size - 1; i++) {
+            elementData[i] = elementData[i + 1];
+        }
+        size--;
+    }
+
+    public void clear() {
+        size = 0;
+    }
+
     public String toString() {
+        if (size == 0) return "[]";
         String result = "[";
         for (int i = 0; i < size - 1; i++) {
             result += elementData[i] + ", ";
