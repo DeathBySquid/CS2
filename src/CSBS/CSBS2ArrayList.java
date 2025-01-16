@@ -31,7 +31,7 @@ public class CSBS2ArrayList {
         return digits;
     }
 
-    public static boolean isKeithNumber(int n) {
+    public static ArrayList<Integer> keithSequence(int n) {
         ArrayList<Integer> sequence = getDigits(n);
 //        System.out.println(sequence);
         int numOfDigits = sequence.size();
@@ -43,20 +43,15 @@ public class CSBS2ArrayList {
             sequence.add(next);
 //            System.out.println(sequence);
         }
-         return sequence.get(sequence.size() - 1) == n;
+        return sequence;
+    }
+    public static boolean isKeithNumber(int n) {
+         return keithSequence(n).get(keithSequence(n).size() - 1) == n;
     }
 
     public static void findKeithNumbers(int min, int max) {
         for (int n = min; n <= max; n++) {
-            ArrayList<Integer> sequence = getDigits(n);
-            int numOfDigits = sequence.size();
-            while (sequence.get(sequence.size() - 1) < n) {
-                int next = 0;
-                for (int i = 0; i < numOfDigits; i++) {
-                    next += sequence.get(sequence.size() - 1 - i);
-                }
-                sequence.add(next);
-            }
+            ArrayList<Integer> sequence = keithSequence(n);
             if (sequence.get(sequence.size() - 1) == n) {
                 System.out.println(n + ": " + sequence);
             }
