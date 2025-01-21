@@ -1,6 +1,8 @@
 package CSBS;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class CSBS2ArrayList {
 
@@ -13,16 +15,13 @@ public class CSBS2ArrayList {
         }
         return count;
     }
-
-    public static ArrayList<Integer> getDigits(int n) {
-        ArrayList<Integer> digits = new ArrayList<>();
-
+    public static LinkedList<Integer> getDigits(int n) {
+        LinkedList<Integer> digits = new LinkedList<>();
         // Handle single digit case
         if (n < 10) {
             digits.add(n);
             return digits;
         }
-
         // Convert number to digits using ArrayList
         while (n > 0) {
             digits.add(0, n % 10);  // add(int index, E element)
@@ -30,9 +29,8 @@ public class CSBS2ArrayList {
         }
         return digits;
     }
-
-    public static ArrayList<Integer> keithSequence(int n) {
-        ArrayList<Integer> sequence = getDigits(n);
+    public static List<Integer> keithSequence(int n) {
+        List<Integer> sequence = getDigits(n);
 //        System.out.println(sequence);
         int numOfDigits = sequence.size();
         while (sequence.get(sequence.size() - 1) < n) {
@@ -48,12 +46,19 @@ public class CSBS2ArrayList {
     public static boolean isKeithNumber(int n) {
          return keithSequence(n).get(keithSequence(n).size() - 1) == n;
     }
-
     public static void findKeithNumbers(int min, int max) {
         for (int n = min; n <= max; n++) {
-            ArrayList<Integer> sequence = keithSequence(n);
+            List<Integer> sequence = keithSequence(n);
             if (sequence.get(sequence.size() - 1) == n) {
                 System.out.println(n + ": " + sequence);
+            }
+        }
+    }
+    public static void removeAll(ArrayList<String> list, String s) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).equals(s)) {
+                list.remove(i);
+                i--;
             }
         }
     }
@@ -66,6 +71,10 @@ public class CSBS2ArrayList {
         System.out.println(list);
         System.out.println(isKeithNumber(7385));
         findKeithNumbers(47, 742);
-
+        ArrayList<String> list1 = new ArrayList<>(List.of("a", "b", "c", "b", "b", "a", "b"));
+        System.out.println(list1);
+        list1.remove("b");
+//        removeAll(list1, "b");
+        System.out.println(list1);
     }
 }
