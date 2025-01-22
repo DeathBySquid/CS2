@@ -2,6 +2,7 @@ package Chapter11;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,10 +10,10 @@ import java.util.Scanner;
 public class UseList {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner input = new Scanner(new File("mobydick.txt"));
-        List<String> words = new LinkedList<>();
+        List<String> words = new LinkedList<>(); // swap the implementation
 
-        while (input.hasNextLine()) {
-            String word = input.nextLine();
+        while (input.hasNext()) {
+            String word = input.next();
             words.add(word);
         }
 
