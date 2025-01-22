@@ -19,8 +19,8 @@ public class Histogram {
         bins.put('D', 0);
         bins.put('F', 0);
 
+        // bins before counting
         System.out.println(bins);
-
 
         while (fileScanner.hasNextInt()) {
             int score = fileScanner.nextInt();
@@ -42,6 +42,13 @@ public class Histogram {
             }
         }
 
+        // bins after counting
         System.out.println(bins);
+
+        for (char key : bins.keySet()) {
+            System.out.print(key + " : ");
+            for (int i = 0; i < bins.get(key); i++) System.out.print('*');
+            System.out.println();
+        }
     }
 }
