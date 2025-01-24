@@ -1,6 +1,7 @@
 package CSBS;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -62,6 +63,19 @@ public class CSBS2ArrayList {
             }
         }
     }
+    public static void deleteDuplicates(List<String> list) {
+        Iterator<String> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            String element = iterator.next();
+            if (iterator.hasNext()) {
+                String next = iterator.next();
+                if (element.equals(next)) {
+                    iterator.remove();
+                }
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
 //        ArrayList<Integer> list = new ArrayList<>(List.of(28, 1, 17, 4, 41, 9, 59, 8, 31, 30, 25));
