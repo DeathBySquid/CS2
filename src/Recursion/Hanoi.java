@@ -1,3 +1,4 @@
+package Recursion;
 
 public class Hanoi {
     public static void hanoi(int disk, int start, int end) {
@@ -26,8 +27,8 @@ public class Hanoi {
     }
 
     public static void main(String[] args) {
-//        hanoi(3, 1, 3);
-//        System.out.println(fibonacci2(3, 0, 1));
+        hanoi(3, 1, 3);
+        System.out.println(fibonacci2(3, 0, 1));
 
     }
 
