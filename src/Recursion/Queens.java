@@ -1,3 +1,4 @@
+package Recursion;
 // This program solves the classic "8 queens" problem using recursive
 // backtracking.  The Board class does most of the work of keeping track of the
 // chessboard state.
