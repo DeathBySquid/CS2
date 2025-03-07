@@ -21,6 +21,9 @@ public class ArrayIntList {
 
     public void add(int index, int element) {
         ensureCapacity(size + 1);
+        // [2, 7, 1, 8, 2, 8]
+        // add(1, 3)
+        // [2,  3,  7,    1,    8,    2,   8]
         for (int i = size; i > index; i--) {
             elementData[i] = elementData[i - 1];
         }
